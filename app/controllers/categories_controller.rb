@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
+    # Fetch recipe counts for each category
+    @categories.each do |category|
+      category.recipe_count = category.recipes.count
+    end
   end
 
   def show

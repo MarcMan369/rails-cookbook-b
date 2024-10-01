@@ -10,3 +10,20 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  padding-left: 10px;
+  float: right;
+}
+
+.navbar {
+  color: blue;
+}

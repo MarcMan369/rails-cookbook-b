@@ -1,8 +1,35 @@
-<h1>View your cookbook categories here</h1>
-<ul>
-  <% @categories.each do |category| %>
-  <li><%= link_to category.name.capitalize, category_path(category) %> | <%= link_to "delete", category_path(category), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(transparent, transparent) url(<%= asset_path "banner.jpg" %>);">
+  <div class="container">
+    <h1>Cookbook</h1>
+    <p>Save your favourites recipes</p>
+  </div>
+</div>
 
-<%= link_to "add a new category", new_category_path %>
+<div class="container">
+  <div class="d-flex">
+    <h1>List of categories</h1>
+    <%= link_to "New Category", new_category_path %>
+  </div>
+
+  <div class="card-container d-flex">
+    <% @categories.each do |category| %>
+      <%= link_to category.name.capitalize, category_path(category) %>
+      <%= link_to "Delete", category_path(category), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
+</div>
+
+<section class="cards">
+  <div class="card">
+    <h2>Italian</h2>
+    <p><%= italian_recipe_count %> recipes</p>
+  </div>
+  <div class="card">
+    <h2>Breakfast</h2>
+    <p><%= breakfast_recipe_count %> recipes</p>
+  </div>
+  <div class="card">
+    <h2>Dessert</h2>
+    <p><%= dessert_recipe_count %> recipes</p>
+  </div>
+</section>

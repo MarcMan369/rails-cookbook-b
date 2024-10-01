@@ -1,4 +1,4 @@
-<h1><%= @category.name %></h1>
+h1><%= @category.name %></h1>
 
 <ul>
   <% @category.bookmarks.each do |bookmark| %>
@@ -15,6 +15,39 @@
   <%= link_to "back to all categories", categories_path %>
   <%= link_to "add a new recipe to your list", new_category_bookmark_path(@category) %>
 </ul>
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center py-3">
+    <h2>Recipes</h2>
+    <%= link_to "Add a recipe", new_category_bookmark_path(@category), class: "btn btn-primary btn-fo"%>
+  </div>
+  <div class="card-container">
+
+    <% @category.bookmarks.each do |bookmark| %>
+    <div class="card-trip">
+    <img src="asset/images/italian.jpg">
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2> class="card-trip-pricing"£9.99</h2>
+    <img src="asset/images/curry.jpg">
+  </div>
+</div>
+      <h2><%= bookmark.recipe.name %> | </h2> <%= link_to "delete", bookmark_path(bookmark), data:
+      { turbo_method: :delete, turbo_confirm: "Are you sure" } %>
+      <p><%= bookmark.recipe.description %></p>
+
+      <p>rating: <%= bookmark.recipe.rating %></p><%= bookmark.recipe.rating %>
+      <p><%= bookmark.comment %></p>
+    <% end %>
+  </div>
+
+
+
+
+<
 
 <%# back to the index page %>
 <%# link to add a new recipe (bookmark!) %>
